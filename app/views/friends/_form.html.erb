@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with(model: friend, local: true) do |form| %>
+  <% if friend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
+
+      <ul>
+      <% friend.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :first_name , placeholder: 'First Name', class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :last_name , placeholder: 'Last Name', class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :email , placeholder: 'Email', class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :phone , placeholder: 'Phone Number', class: 'form-control'%>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :twitter, placeholder: 'Twitter', class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.number_field :user_id, value: current_user.id, class: 'form-control', id: :friend_user_id, type: :hidden %>
+  </div>
+
+  <br/>
+
+  <div class="actions form-group">
+    <%= form.submit class: 'btn btn-secondary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @friend, class:'btn btn-secondary' %> 
+<%= link_to 'Back', friends_path, class: 'btn btn-dark' %>
+  </div>
+</div>
+

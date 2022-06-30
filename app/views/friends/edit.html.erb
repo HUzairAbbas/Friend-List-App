@@ -1,0 +1,6 @@
+<br/>
+<h1>Editing Friend</h1>
+<br/>
+
+<%= render 'form', friend: @friend %>
+<%= link_to 'Delete', @friend, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
